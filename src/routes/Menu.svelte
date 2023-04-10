@@ -1,10 +1,14 @@
 <script>
     import { fly, scale } from 'svelte/transition';
     import { quadOut } from 'svelte/easing';
+    import { page } from "$app/stores"
 
-    export let open;
+    /**
+	 * @type {any}
+	 */
+     export let open;
 </script>
-
+{#if $page.data.session}
 {#if open}
     <div>
         <ul>
@@ -25,6 +29,15 @@
     </div>
 
     <hr transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
+{/if}
+<p>Session expiry: {$page.data.session?.expires}</p>
+{:else}
+<h1>Access Denied</h1>
+<p>
+  <a href="/auth/signin">
+    You must be signed in to view this page
+  </a>
+</p>
 {/if}
 
 <style>

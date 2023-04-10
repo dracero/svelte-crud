@@ -7,7 +7,7 @@
     let email = "";
     let id = "";
 
-    idStore.subscribe(value => {
+    idStore.subscribe((/** @type {string} */ value) => {
 		id = value;
 	});
     async function handleUpdate() {
@@ -31,6 +31,7 @@
         console.error("Error updating user data:", response.statusText);
       }
     } catch (error) {
+      // @ts-ignore
       console.error("Error updating user data:", error.message);
     }
    }

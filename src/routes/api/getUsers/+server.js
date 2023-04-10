@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { error } from '@sveltejs/kit';
 import { MongoClient } from 'mongodb';
 

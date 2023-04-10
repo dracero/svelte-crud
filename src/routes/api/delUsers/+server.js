@@ -11,7 +11,7 @@ export async function DELETE({ url }) {
   if (!id) {
     throw error(400, 'Please provide an ID.');
   }
-
+ 
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   await client.connect();
   const collection = client.db("fistsvelte").collection('users');
